@@ -1,0 +1,1485 @@
+[gd_scene load_steps=136 format=3 uid="uid://bjc8cu70t8s3e"]
+
+[ext_resource type="Material" path="res://mat.tres" id="1_trhtl"]
+[ext_resource type="Script" path="res://addons/tile_map_3d/class/tile_map_3d.gd" id="2_wsgy8"]
+[ext_resource type="TileSet" uid="uid://djk60tn5sn2g3" path="res://tileset/Dungeon_A2.tres" id="3_ifx8g"]
+[ext_resource type="Texture2D" uid="uid://u1r4lea72pgl" path="res://output_sprite/Dungeon_A2.png" id="4_mow2r"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_jafs8"]
+_surfaces = [{
+"aabb": AABB(0, 0, 0, 3, 1e-05, 2),
+"attribute_data": PackedByteArray(171, 170, 42, 61, 0, 0, 128, 61, 0, 0, 128, 61, 0, 0, 128, 61, 171, 170, 42, 61, 171, 170, 170, 61, 0, 0, 128, 61, 171, 170, 170, 61, 171, 170, 170, 61, 0, 0, 0, 62, 86, 85, 213, 61, 0, 0, 0, 62, 171, 170, 170, 61, 85, 85, 21, 62, 86, 85, 213, 61, 85, 85, 21, 62, 171, 170, 170, 61, 171, 170, 170, 61, 86, 85, 213, 61, 171, 170, 170, 61, 171, 170, 170, 61, 86, 85, 213, 61, 86, 85, 213, 61, 86, 85, 213, 61, 171, 170, 42, 61, 0, 0, 0, 62, 0, 0, 128, 61, 0, 0, 0, 62, 171, 170, 42, 61, 85, 85, 21, 62, 0, 0, 128, 61, 85, 85, 21, 62, 0, 0, 0, 0, 0, 0, 0, 62, 171, 170, 170, 60, 0, 0, 0, 62, 0, 0, 0, 0, 85, 85, 21, 62, 171, 170, 170, 60, 85, 85, 21, 62, 171, 170, 170, 61, 85, 85, 213, 61, 86, 85, 213, 61, 85, 85, 213, 61),
+"format": 34359742481,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0, 4, 0, 5, 0, 6, 0, 5, 0, 7, 0, 6, 0, 8, 0, 9, 0, 10, 0, 9, 0, 11, 0, 10, 0, 12, 0, 13, 0, 14, 0, 13, 0, 15, 0, 14, 0, 16, 0, 17, 0, 18, 0, 17, 0, 19, 0, 18, 0, 20, 0, 21, 0, 4, 0, 21, 0, 5, 0, 4, 0),
+"material": ExtResource("1_trhtl"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 22,
+"vertex_data": PackedByteArray(0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 64, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 64, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 64, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 64, 0, 0, 0, 64, 0, 0, 0, 0, 0, 0, 0, 64, 0, 0, 0, 64, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 64, 64, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 64, 0, 0, 0, 0, 0, 0, 0, 64, 0, 0, 64, 64, 0, 0, 0, 0, 0, 0, 0, 64, 0, 0, 0, 64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64, 64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 64, 64, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 0, 0)
+}]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_60xxq"]
+cull_mode = 2
+albedo_color = Color(0.8, 1, 1, 0.25)
+proximity_fade_enabled = true
+distance_fade_mode = 1
+distance_fade_max_distance = 28.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_dwysq"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1.00136e-05, 1),
+"attribute_data": PackedByteArray(171, 170, 170, 61, 85, 85, 21, 62, 86, 85, 213, 61, 85, 85, 21, 62, 171, 170, 170, 61, 170, 170, 42, 62, 86, 85, 213, 61, 170, 170, 42, 62),
+"format": 34359742481,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0),
+"material": ExtResource("1_trhtl"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63)
+}, {
+"aabb": AABB(-0.5, -1.5, -0.5, 1, 1, 1),
+"format": 34359742465,
+"index_count": 30,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0, 0, 0, 2, 0, 4, 0, 0, 0, 4, 0, 5, 0, 1, 0, 3, 0, 6, 0, 1, 0, 6, 0, 7, 0, 0, 0, 1, 0, 7, 0, 0, 0, 7, 0, 5, 0, 2, 0, 3, 0, 4, 0, 3, 0, 6, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_60xxq"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191)
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_li3oa"]
+atlas = ExtResource("4_mow2r")
+region = Rect2(192, 336, 48, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cx8dy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_omxmr"]
+cull_mode = 2
+albedo_color = Color(0.8, 1, 1, 0.25)
+proximity_fade_enabled = true
+distance_fade_mode = 1
+distance_fade_max_distance = 28.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_nxqeo"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1.00136e-05, 1),
+"attribute_data": PackedByteArray(85, 85, 85, 62, 85, 85, 21, 62, 170, 170, 106, 62, 85, 85, 21, 62, 85, 85, 85, 62, 170, 170, 42, 62, 170, 170, 106, 62, 170, 170, 42, 62),
+"format": 34359742481,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0),
+"material": ExtResource("1_trhtl"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63)
+}, {
+"aabb": AABB(-0.5, -1.5, -0.5, 1, 1, 1),
+"format": 34359742465,
+"index_count": 30,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0, 0, 0, 2, 0, 4, 0, 0, 0, 4, 0, 5, 0, 1, 0, 3, 0, 6, 0, 1, 0, 6, 0, 7, 0, 0, 0, 1, 0, 7, 0, 0, 0, 7, 0, 5, 0, 2, 0, 3, 0, 4, 0, 3, 0, 6, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_omxmr"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191)
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eq8k3"]
+atlas = ExtResource("4_mow2r")
+region = Rect2(480, 336, 48, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_35cv0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dk28g"]
+cull_mode = 2
+albedo_color = Color(0.8, 1, 1, 0.25)
+proximity_fade_enabled = true
+distance_fade_mode = 1
+distance_fade_max_distance = 28.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_envkd"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1.00136e-05, 1),
+"attribute_data": PackedByteArray(171, 170, 170, 62, 0, 0, 160, 62, 86, 85, 181, 62, 0, 0, 160, 62, 171, 170, 170, 62, 171, 170, 170, 62, 86, 85, 181, 62, 171, 170, 170, 62),
+"format": 34359742481,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0),
+"material": ExtResource("1_trhtl"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63)
+}, {
+"aabb": AABB(-0.5, -1.5, -0.5, 1, 1, 1),
+"format": 34359742465,
+"index_count": 30,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0, 0, 0, 2, 0, 4, 0, 0, 0, 4, 0, 5, 0, 1, 0, 3, 0, 6, 0, 1, 0, 6, 0, 7, 0, 0, 0, 1, 0, 7, 0, 0, 0, 7, 0, 5, 0, 2, 0, 3, 0, 4, 0, 3, 0, 6, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_dk28g"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191)
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvk6h"]
+atlas = ExtResource("4_mow2r")
+region = Rect2(768, 720, 48, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0iotk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a57ei"]
+cull_mode = 2
+albedo_color = Color(0.8, 1, 1, 0.25)
+proximity_fade_enabled = true
+distance_fade_mode = 1
+distance_fade_max_distance = 28.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_008q0"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1.00136e-05, 1),
+"attribute_data": PackedByteArray(171, 170, 234, 62, 0, 0, 160, 62, 86, 85, 245, 62, 0, 0, 160, 62, 171, 170, 234, 62, 171, 170, 170, 62, 86, 85, 245, 62, 171, 170, 170, 62),
+"format": 34359742481,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0),
+"material": ExtResource("1_trhtl"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63)
+}, {
+"aabb": AABB(-0.5, -1.5, -0.5, 1, 1, 1),
+"format": 34359742465,
+"index_count": 30,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0, 0, 0, 2, 0, 4, 0, 0, 0, 4, 0, 5, 0, 1, 0, 3, 0, 6, 0, 1, 0, 6, 0, 7, 0, 0, 0, 1, 0, 7, 0, 0, 0, 7, 0, 5, 0, 2, 0, 3, 0, 4, 0, 3, 0, 6, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_a57ei"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191)
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gq5pd"]
+atlas = ExtResource("4_mow2r")
+region = Rect2(1056, 720, 48, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vixbr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w7rl1"]
+cull_mode = 2
+albedo_color = Color(0.8, 1, 1, 0.25)
+proximity_fade_enabled = true
+distance_fade_mode = 1
+distance_fade_max_distance = 28.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_eeb8a"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1.00136e-05, 1),
+"attribute_data": PackedByteArray(85, 85, 21, 63, 0, 0, 160, 62, 170, 170, 26, 63, 0, 0, 160, 62, 85, 85, 21, 63, 171, 170, 170, 62, 170, 170, 26, 63, 171, 170, 170, 62),
+"format": 34359742481,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0),
+"material": ExtResource("1_trhtl"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63)
+}, {
+"aabb": AABB(-0.5, -1.5, -0.5, 1, 1, 1),
+"format": 34359742465,
+"index_count": 30,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0, 0, 0, 2, 0, 4, 0, 0, 0, 4, 0, 5, 0, 1, 0, 3, 0, 6, 0, 1, 0, 6, 0, 7, 0, 0, 0, 1, 0, 7, 0, 0, 0, 7, 0, 5, 0, 2, 0, 3, 0, 4, 0, 3, 0, 6, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_w7rl1"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191)
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmiwb"]
+atlas = ExtResource("4_mow2r")
+region = Rect2(1344, 720, 48, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rwmn3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4cn8w"]
+cull_mode = 2
+albedo_color = Color(0.8, 1, 1, 0.25)
+proximity_fade_enabled = true
+distance_fade_mode = 1
+distance_fade_max_distance = 28.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ywiex"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1.00136e-05, 1),
+"attribute_data": PackedByteArray(85, 85, 53, 63, 0, 0, 160, 62, 170, 170, 58, 63, 0, 0, 160, 62, 85, 85, 53, 63, 171, 170, 170, 62, 170, 170, 58, 63, 171, 170, 170, 62),
+"format": 34359742481,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0),
+"material": ExtResource("1_trhtl"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63)
+}, {
+"aabb": AABB(-0.5, -1.5, -0.5, 1, 1, 1),
+"format": 34359742465,
+"index_count": 30,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0, 0, 0, 2, 0, 4, 0, 0, 0, 4, 0, 5, 0, 1, 0, 3, 0, 6, 0, 1, 0, 6, 0, 7, 0, 0, 0, 1, 0, 7, 0, 0, 0, 7, 0, 5, 0, 2, 0, 3, 0, 4, 0, 3, 0, 6, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_4cn8w"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191)
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_enjlv"]
+atlas = ExtResource("4_mow2r")
+region = Rect2(1632, 720, 48, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xoil6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vkthm"]
+cull_mode = 2
+albedo_color = Color(0.8, 1, 1, 0.25)
+proximity_fade_enabled = true
+distance_fade_mode = 1
+distance_fade_max_distance = 28.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_i4k80"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1.00136e-05, 1),
+"attribute_data": PackedByteArray(85, 85, 85, 63, 0, 0, 160, 62, 170, 170, 90, 63, 0, 0, 160, 62, 85, 85, 85, 63, 171, 170, 170, 62, 170, 170, 90, 63, 171, 170, 170, 62),
+"format": 34359742481,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0),
+"material": ExtResource("1_trhtl"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63)
+}, {
+"aabb": AABB(-0.5, -1.5, -0.5, 1, 1, 1),
+"format": 34359742465,
+"index_count": 30,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0, 0, 0, 2, 0, 4, 0, 0, 0, 4, 0, 5, 0, 1, 0, 3, 0, 6, 0, 1, 0, 6, 0, 7, 0, 0, 0, 1, 0, 7, 0, 0, 0, 7, 0, 5, 0, 2, 0, 3, 0, 4, 0, 3, 0, 6, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_vkthm"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191)
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5j3q0"]
+atlas = ExtResource("4_mow2r")
+region = Rect2(1920, 720, 48, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jqv46"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gor2a"]
+cull_mode = 2
+albedo_color = Color(0.8, 1, 1, 0.25)
+proximity_fade_enabled = true
+distance_fade_mode = 1
+distance_fade_max_distance = 28.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1df7o"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1.00136e-05, 1),
+"attribute_data": PackedByteArray(85, 85, 117, 63, 0, 0, 160, 62, 170, 170, 122, 63, 0, 0, 160, 62, 85, 85, 117, 63, 171, 170, 170, 62, 170, 170, 122, 63, 171, 170, 170, 62),
+"format": 34359742481,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0),
+"material": ExtResource("1_trhtl"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63)
+}, {
+"aabb": AABB(-0.5, -1.5, -0.5, 1, 1, 1),
+"format": 34359742465,
+"index_count": 30,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0, 0, 0, 2, 0, 4, 0, 0, 0, 4, 0, 5, 0, 1, 0, 3, 0, 6, 0, 1, 0, 6, 0, 7, 0, 0, 0, 1, 0, 7, 0, 0, 0, 7, 0, 5, 0, 2, 0, 3, 0, 4, 0, 3, 0, 6, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_gor2a"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191)
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n78ek"]
+atlas = ExtResource("4_mow2r")
+region = Rect2(2208, 720, 48, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eo32b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b7cb2"]
+cull_mode = 2
+albedo_color = Color(0.8, 1, 1, 0.25)
+proximity_fade_enabled = true
+distance_fade_mode = 1
+distance_fade_max_distance = 28.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_60ga4"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1.00136e-05, 1),
+"attribute_data": PackedByteArray(171, 170, 170, 61, 85, 85, 245, 62, 86, 85, 213, 61, 85, 85, 245, 62, 171, 170, 170, 61, 0, 0, 0, 63, 86, 85, 213, 61, 0, 0, 0, 63),
+"format": 34359742481,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0),
+"material": ExtResource("1_trhtl"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63)
+}, {
+"aabb": AABB(-0.5, -1.5, -0.5, 1, 1, 1),
+"format": 34359742465,
+"index_count": 30,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0, 0, 0, 2, 0, 4, 0, 0, 0, 4, 0, 5, 0, 1, 0, 3, 0, 6, 0, 1, 0, 6, 0, 7, 0, 0, 0, 1, 0, 7, 0, 0, 0, 7, 0, 5, 0, 2, 0, 3, 0, 4, 0, 3, 0, 6, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_b7cb2"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191)
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_540ii"]
+atlas = ExtResource("4_mow2r")
+region = Rect2(192, 1104, 48, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7mllw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rc4mt"]
+cull_mode = 2
+albedo_color = Color(0.8, 1, 1, 0.25)
+proximity_fade_enabled = true
+distance_fade_mode = 1
+distance_fade_max_distance = 28.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qd4i3"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1.00136e-05, 1),
+"attribute_data": PackedByteArray(85, 85, 85, 62, 85, 85, 245, 62, 170, 170, 106, 62, 85, 85, 245, 62, 85, 85, 85, 62, 0, 0, 0, 63, 170, 170, 106, 62, 0, 0, 0, 63),
+"format": 34359742481,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0),
+"material": ExtResource("1_trhtl"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63)
+}, {
+"aabb": AABB(-0.5, -1.5, -0.5, 1, 1, 1),
+"format": 34359742465,
+"index_count": 30,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0, 0, 0, 2, 0, 4, 0, 0, 0, 4, 0, 5, 0, 1, 0, 3, 0, 6, 0, 1, 0, 6, 0, 7, 0, 0, 0, 1, 0, 7, 0, 0, 0, 7, 0, 5, 0, 2, 0, 3, 0, 4, 0, 3, 0, 6, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_rc4mt"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191)
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7y57"]
+atlas = ExtResource("4_mow2r")
+region = Rect2(480, 1104, 48, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_utxxx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wndem"]
+cull_mode = 2
+albedo_color = Color(0.8, 1, 1, 0.25)
+proximity_fade_enabled = true
+distance_fade_mode = 1
+distance_fade_max_distance = 28.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_jmafx"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1.00136e-05, 1),
+"attribute_data": PackedByteArray(171, 170, 170, 62, 85, 85, 245, 62, 86, 85, 181, 62, 85, 85, 245, 62, 171, 170, 170, 62, 0, 0, 0, 63, 86, 85, 181, 62, 0, 0, 0, 63),
+"format": 34359742481,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0),
+"material": ExtResource("1_trhtl"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63)
+}, {
+"aabb": AABB(-0.5, -1.5, -0.5, 1, 1, 1),
+"format": 34359742465,
+"index_count": 30,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0, 0, 0, 2, 0, 4, 0, 0, 0, 4, 0, 5, 0, 1, 0, 3, 0, 6, 0, 1, 0, 6, 0, 7, 0, 0, 0, 1, 0, 7, 0, 0, 0, 7, 0, 5, 0, 2, 0, 3, 0, 4, 0, 3, 0, 6, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_wndem"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191)
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7iti"]
+atlas = ExtResource("4_mow2r")
+region = Rect2(768, 1104, 48, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bd3lc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ydm55"]
+cull_mode = 2
+albedo_color = Color(0.8, 1, 1, 0.25)
+proximity_fade_enabled = true
+distance_fade_mode = 1
+distance_fade_max_distance = 28.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_iq5mk"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1.00136e-05, 1),
+"attribute_data": PackedByteArray(171, 170, 234, 62, 85, 85, 245, 62, 86, 85, 245, 62, 85, 85, 245, 62, 171, 170, 234, 62, 0, 0, 0, 63, 86, 85, 245, 62, 0, 0, 0, 63),
+"format": 34359742481,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0),
+"material": ExtResource("1_trhtl"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63)
+}, {
+"aabb": AABB(-0.5, -1.5, -0.5, 1, 1, 1),
+"format": 34359742465,
+"index_count": 30,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0, 0, 0, 2, 0, 4, 0, 0, 0, 4, 0, 5, 0, 1, 0, 3, 0, 6, 0, 1, 0, 6, 0, 7, 0, 0, 0, 1, 0, 7, 0, 0, 0, 7, 0, 5, 0, 2, 0, 3, 0, 4, 0, 3, 0, 6, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_ydm55"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191)
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hy818"]
+atlas = ExtResource("4_mow2r")
+region = Rect2(1056, 1104, 48, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l5vk0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2dwbi"]
+cull_mode = 2
+albedo_color = Color(0.8, 1, 1, 0.25)
+proximity_fade_enabled = true
+distance_fade_mode = 1
+distance_fade_max_distance = 28.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_a61eu"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1.00136e-05, 1),
+"attribute_data": PackedByteArray(171, 170, 170, 62, 85, 85, 21, 62, 86, 85, 181, 62, 85, 85, 21, 62, 171, 170, 170, 62, 170, 170, 42, 62, 86, 85, 181, 62, 170, 170, 42, 62),
+"format": 34359742481,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0),
+"material": ExtResource("1_trhtl"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63)
+}, {
+"aabb": AABB(-0.5, -1.5, -0.5, 1, 1, 1),
+"format": 34359742465,
+"index_count": 30,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0, 0, 0, 2, 0, 4, 0, 0, 0, 4, 0, 5, 0, 1, 0, 3, 0, 6, 0, 1, 0, 6, 0, 7, 0, 0, 0, 1, 0, 7, 0, 0, 0, 7, 0, 5, 0, 2, 0, 3, 0, 4, 0, 3, 0, 6, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_2dwbi"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191)
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2d5s"]
+atlas = ExtResource("4_mow2r")
+region = Rect2(768, 336, 48, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pk710"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1anon"]
+cull_mode = 2
+albedo_color = Color(0.8, 1, 1, 0.25)
+proximity_fade_enabled = true
+distance_fade_mode = 1
+distance_fade_max_distance = 28.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_a2ysx"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1.00136e-05, 1),
+"attribute_data": PackedByteArray(85, 85, 21, 63, 85, 85, 245, 62, 170, 170, 26, 63, 85, 85, 245, 62, 85, 85, 21, 63, 0, 0, 0, 63, 170, 170, 26, 63, 0, 0, 0, 63),
+"format": 34359742481,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0),
+"material": ExtResource("1_trhtl"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63)
+}, {
+"aabb": AABB(-0.5, -1.5, -0.5, 1, 1, 1),
+"format": 34359742465,
+"index_count": 30,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0, 0, 0, 2, 0, 4, 0, 0, 0, 4, 0, 5, 0, 1, 0, 3, 0, 6, 0, 1, 0, 6, 0, 7, 0, 0, 0, 1, 0, 7, 0, 0, 0, 7, 0, 5, 0, 2, 0, 3, 0, 4, 0, 3, 0, 6, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_1anon"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191)
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sp0d5"]
+atlas = ExtResource("4_mow2r")
+region = Rect2(1344, 1104, 48, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kymes"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_46k55"]
+cull_mode = 2
+albedo_color = Color(0.8, 1, 1, 0.25)
+proximity_fade_enabled = true
+distance_fade_mode = 1
+distance_fade_max_distance = 28.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ege8u"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1.00136e-05, 1),
+"attribute_data": PackedByteArray(85, 85, 53, 63, 85, 85, 245, 62, 170, 170, 58, 63, 85, 85, 245, 62, 85, 85, 53, 63, 0, 0, 0, 63, 170, 170, 58, 63, 0, 0, 0, 63),
+"format": 34359742481,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0),
+"material": ExtResource("1_trhtl"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63)
+}, {
+"aabb": AABB(-0.5, -1.5, -0.5, 1, 1, 1),
+"format": 34359742465,
+"index_count": 30,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0, 0, 0, 2, 0, 4, 0, 0, 0, 4, 0, 5, 0, 1, 0, 3, 0, 6, 0, 1, 0, 6, 0, 7, 0, 0, 0, 1, 0, 7, 0, 0, 0, 7, 0, 5, 0, 2, 0, 3, 0, 4, 0, 3, 0, 6, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_46k55"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191)
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfr37"]
+atlas = ExtResource("4_mow2r")
+region = Rect2(1632, 1104, 48, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wwt48"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5w342"]
+cull_mode = 2
+albedo_color = Color(0.8, 1, 1, 0.25)
+proximity_fade_enabled = true
+distance_fade_mode = 1
+distance_fade_max_distance = 28.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ckcsn"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1.00136e-05, 1),
+"attribute_data": PackedByteArray(85, 85, 85, 63, 85, 85, 245, 62, 170, 170, 90, 63, 85, 85, 245, 62, 85, 85, 85, 63, 0, 0, 0, 63, 170, 170, 90, 63, 0, 0, 0, 63),
+"format": 34359742481,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0),
+"material": ExtResource("1_trhtl"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63)
+}, {
+"aabb": AABB(-0.5, -1.5, -0.5, 1, 1, 1),
+"format": 34359742465,
+"index_count": 30,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0, 0, 0, 2, 0, 4, 0, 0, 0, 4, 0, 5, 0, 1, 0, 3, 0, 6, 0, 1, 0, 6, 0, 7, 0, 0, 0, 1, 0, 7, 0, 0, 0, 7, 0, 5, 0, 2, 0, 3, 0, 4, 0, 3, 0, 6, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_5w342"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191)
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnxcv"]
+atlas = ExtResource("4_mow2r")
+region = Rect2(1920, 1104, 48, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ndbks"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dej6o"]
+cull_mode = 2
+albedo_color = Color(0.8, 1, 1, 0.25)
+proximity_fade_enabled = true
+distance_fade_mode = 1
+distance_fade_max_distance = 28.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_fipoc"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1.00136e-05, 1),
+"attribute_data": PackedByteArray(85, 85, 117, 63, 85, 85, 245, 62, 170, 170, 122, 63, 85, 85, 245, 62, 85, 85, 117, 63, 0, 0, 0, 63, 170, 170, 122, 63, 0, 0, 0, 63),
+"format": 34359742481,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0),
+"material": ExtResource("1_trhtl"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63)
+}, {
+"aabb": AABB(-0.5, -1.5, -0.5, 1, 1, 1),
+"format": 34359742465,
+"index_count": 30,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0, 0, 0, 2, 0, 4, 0, 0, 0, 4, 0, 5, 0, 1, 0, 3, 0, 6, 0, 1, 0, 6, 0, 7, 0, 0, 0, 1, 0, 7, 0, 0, 0, 7, 0, 5, 0, 2, 0, 3, 0, 4, 0, 3, 0, 6, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_dej6o"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191)
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omnyh"]
+atlas = ExtResource("4_mow2r")
+region = Rect2(2208, 1104, 48, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gb2a2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_feb3s"]
+cull_mode = 2
+albedo_color = Color(0.8, 1, 1, 0.25)
+proximity_fade_enabled = true
+distance_fade_mode = 1
+distance_fade_max_distance = 28.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_5px0f"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1.00136e-05, 1),
+"attribute_data": PackedByteArray(171, 170, 170, 61, 85, 85, 37, 63, 86, 85, 213, 61, 85, 85, 37, 63, 171, 170, 170, 61, 170, 170, 42, 63, 86, 85, 213, 61, 170, 170, 42, 63),
+"format": 34359742481,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0),
+"material": ExtResource("1_trhtl"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63)
+}, {
+"aabb": AABB(-0.5, -1.5, -0.5, 1, 1, 1),
+"format": 34359742465,
+"index_count": 30,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0, 0, 0, 2, 0, 4, 0, 0, 0, 4, 0, 5, 0, 1, 0, 3, 0, 6, 0, 1, 0, 6, 0, 7, 0, 0, 0, 1, 0, 7, 0, 0, 0, 7, 0, 5, 0, 2, 0, 3, 0, 4, 0, 3, 0, 6, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_feb3s"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191)
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlkvw"]
+atlas = ExtResource("4_mow2r")
+region = Rect2(192, 1488, 48, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_64r86"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rb1r3"]
+cull_mode = 2
+albedo_color = Color(0.8, 1, 1, 0.25)
+proximity_fade_enabled = true
+distance_fade_mode = 1
+distance_fade_max_distance = 28.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_iqkjb"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1.00136e-05, 1),
+"attribute_data": PackedByteArray(85, 85, 85, 62, 85, 85, 37, 63, 170, 170, 106, 62, 85, 85, 37, 63, 85, 85, 85, 62, 170, 170, 42, 63, 170, 170, 106, 62, 170, 170, 42, 63),
+"format": 34359742481,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0),
+"material": ExtResource("1_trhtl"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63)
+}, {
+"aabb": AABB(-0.5, -1.5, -0.5, 1, 1, 1),
+"format": 34359742465,
+"index_count": 30,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0, 0, 0, 2, 0, 4, 0, 0, 0, 4, 0, 5, 0, 1, 0, 3, 0, 6, 0, 1, 0, 6, 0, 7, 0, 0, 0, 1, 0, 7, 0, 0, 0, 7, 0, 5, 0, 2, 0, 3, 0, 4, 0, 3, 0, 6, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_rb1r3"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191)
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hqi3"]
+atlas = ExtResource("4_mow2r")
+region = Rect2(480, 1488, 48, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1edsw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sfr6p"]
+cull_mode = 2
+albedo_color = Color(0.8, 1, 1, 0.25)
+proximity_fade_enabled = true
+distance_fade_mode = 1
+distance_fade_max_distance = 28.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_avrqg"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1.00136e-05, 1),
+"attribute_data": PackedByteArray(171, 170, 170, 62, 85, 85, 37, 63, 86, 85, 181, 62, 85, 85, 37, 63, 171, 170, 170, 62, 170, 170, 42, 63, 86, 85, 181, 62, 170, 170, 42, 63),
+"format": 34359742481,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0),
+"material": ExtResource("1_trhtl"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63)
+}, {
+"aabb": AABB(-0.5, -1.5, -0.5, 1, 1, 1),
+"format": 34359742465,
+"index_count": 30,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0, 0, 0, 2, 0, 4, 0, 0, 0, 4, 0, 5, 0, 1, 0, 3, 0, 6, 0, 1, 0, 6, 0, 7, 0, 0, 0, 1, 0, 7, 0, 0, 0, 7, 0, 5, 0, 2, 0, 3, 0, 4, 0, 3, 0, 6, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_sfr6p"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191)
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1vw7"]
+atlas = ExtResource("4_mow2r")
+region = Rect2(768, 1488, 48, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5ilhi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8b1cp"]
+cull_mode = 2
+albedo_color = Color(0.8, 1, 1, 0.25)
+proximity_fade_enabled = true
+distance_fade_mode = 1
+distance_fade_max_distance = 28.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vdj3j"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1.00136e-05, 1),
+"attribute_data": PackedByteArray(171, 170, 234, 62, 85, 85, 37, 63, 86, 85, 245, 62, 85, 85, 37, 63, 171, 170, 234, 62, 170, 170, 42, 63, 86, 85, 245, 62, 170, 170, 42, 63),
+"format": 34359742481,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0),
+"material": ExtResource("1_trhtl"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63)
+}, {
+"aabb": AABB(-0.5, -1.5, -0.5, 1, 1, 1),
+"format": 34359742465,
+"index_count": 30,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0, 0, 0, 2, 0, 4, 0, 0, 0, 4, 0, 5, 0, 1, 0, 3, 0, 6, 0, 1, 0, 6, 0, 7, 0, 0, 0, 1, 0, 7, 0, 0, 0, 7, 0, 5, 0, 2, 0, 3, 0, 4, 0, 3, 0, 6, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_8b1cp"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191)
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqyxy"]
+atlas = ExtResource("4_mow2r")
+region = Rect2(1056, 1488, 48, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3r1fr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rdq73"]
+cull_mode = 2
+albedo_color = Color(0.8, 1, 1, 0.25)
+proximity_fade_enabled = true
+distance_fade_mode = 1
+distance_fade_max_distance = 28.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_p8cxt"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1.00136e-05, 1),
+"attribute_data": PackedByteArray(85, 85, 21, 63, 85, 85, 37, 63, 170, 170, 26, 63, 85, 85, 37, 63, 85, 85, 21, 63, 170, 170, 42, 63, 170, 170, 26, 63, 170, 170, 42, 63),
+"format": 34359742481,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0),
+"material": ExtResource("1_trhtl"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63)
+}, {
+"aabb": AABB(-0.5, -1.5, -0.5, 1, 1, 1),
+"format": 34359742465,
+"index_count": 30,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0, 0, 0, 2, 0, 4, 0, 0, 0, 4, 0, 5, 0, 1, 0, 3, 0, 6, 0, 1, 0, 6, 0, 7, 0, 0, 0, 1, 0, 7, 0, 0, 0, 7, 0, 5, 0, 2, 0, 3, 0, 4, 0, 3, 0, 6, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_rdq73"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191)
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysm05"]
+atlas = ExtResource("4_mow2r")
+region = Rect2(1344, 1488, 48, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l4uug"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jo0de"]
+cull_mode = 2
+albedo_color = Color(0.8, 1, 1, 0.25)
+proximity_fade_enabled = true
+distance_fade_mode = 1
+distance_fade_max_distance = 28.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_43kpu"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1.00136e-05, 1),
+"attribute_data": PackedByteArray(85, 85, 53, 63, 85, 85, 37, 63, 170, 170, 58, 63, 85, 85, 37, 63, 85, 85, 53, 63, 170, 170, 42, 63, 170, 170, 58, 63, 170, 170, 42, 63),
+"format": 34359742481,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0),
+"material": ExtResource("1_trhtl"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63)
+}, {
+"aabb": AABB(-0.5, -1.5, -0.5, 1, 1, 1),
+"format": 34359742465,
+"index_count": 30,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0, 0, 0, 2, 0, 4, 0, 0, 0, 4, 0, 5, 0, 1, 0, 3, 0, 6, 0, 1, 0, 6, 0, 7, 0, 0, 0, 1, 0, 7, 0, 0, 0, 7, 0, 5, 0, 2, 0, 3, 0, 4, 0, 3, 0, 6, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_jo0de"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191)
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5eyh"]
+atlas = ExtResource("4_mow2r")
+region = Rect2(1632, 1488, 48, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2piee"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1raly"]
+cull_mode = 2
+albedo_color = Color(0.8, 1, 1, 0.25)
+proximity_fade_enabled = true
+distance_fade_mode = 1
+distance_fade_max_distance = 28.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_paymb"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1.00136e-05, 1),
+"attribute_data": PackedByteArray(171, 170, 234, 62, 85, 85, 21, 62, 86, 85, 245, 62, 85, 85, 21, 62, 171, 170, 234, 62, 170, 170, 42, 62, 86, 85, 245, 62, 170, 170, 42, 62),
+"format": 34359742481,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0),
+"material": ExtResource("1_trhtl"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63)
+}, {
+"aabb": AABB(-0.5, -1.5, -0.5, 1, 1, 1),
+"format": 34359742465,
+"index_count": 30,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0, 0, 0, 2, 0, 4, 0, 0, 0, 4, 0, 5, 0, 1, 0, 3, 0, 6, 0, 1, 0, 6, 0, 7, 0, 0, 0, 1, 0, 7, 0, 0, 0, 7, 0, 5, 0, 2, 0, 3, 0, 4, 0, 3, 0, 6, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_1raly"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191)
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sffu2"]
+atlas = ExtResource("4_mow2r")
+region = Rect2(1056, 336, 48, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q7gw1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dbco6"]
+cull_mode = 2
+albedo_color = Color(0.8, 1, 1, 0.25)
+proximity_fade_enabled = true
+distance_fade_mode = 1
+distance_fade_max_distance = 28.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_db0pp"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1.00136e-05, 1),
+"attribute_data": PackedByteArray(85, 85, 85, 63, 85, 85, 37, 63, 170, 170, 90, 63, 85, 85, 37, 63, 85, 85, 85, 63, 170, 170, 42, 63, 170, 170, 90, 63, 170, 170, 42, 63),
+"format": 34359742481,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0),
+"material": ExtResource("1_trhtl"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63)
+}, {
+"aabb": AABB(-0.5, -1.5, -0.5, 1, 1, 1),
+"format": 34359742465,
+"index_count": 30,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0, 0, 0, 2, 0, 4, 0, 0, 0, 4, 0, 5, 0, 1, 0, 3, 0, 6, 0, 1, 0, 6, 0, 7, 0, 0, 0, 1, 0, 7, 0, 0, 0, 7, 0, 5, 0, 2, 0, 3, 0, 4, 0, 3, 0, 6, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_dbco6"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191)
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7q8hm"]
+atlas = ExtResource("4_mow2r")
+region = Rect2(1920, 1488, 48, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_irty3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i2k74"]
+cull_mode = 2
+albedo_color = Color(0.8, 1, 1, 0.25)
+proximity_fade_enabled = true
+distance_fade_mode = 1
+distance_fade_max_distance = 28.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_2cuc3"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1.00136e-05, 1),
+"attribute_data": PackedByteArray(85, 85, 117, 63, 85, 85, 37, 63, 170, 170, 122, 63, 85, 85, 37, 63, 85, 85, 117, 63, 170, 170, 42, 63, 170, 170, 122, 63, 170, 170, 42, 63),
+"format": 34359742481,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0),
+"material": ExtResource("1_trhtl"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63)
+}, {
+"aabb": AABB(-0.5, -1.5, -0.5, 1, 1, 1),
+"format": 34359742465,
+"index_count": 30,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0, 0, 0, 2, 0, 4, 0, 0, 0, 4, 0, 5, 0, 1, 0, 3, 0, 6, 0, 1, 0, 6, 0, 7, 0, 0, 0, 1, 0, 7, 0, 0, 0, 7, 0, 5, 0, 2, 0, 3, 0, 4, 0, 3, 0, 6, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_i2k74"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191)
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_datej"]
+atlas = ExtResource("4_mow2r")
+region = Rect2(2208, 1488, 48, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cn3jg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mlli0"]
+cull_mode = 2
+albedo_color = Color(0.8, 1, 1, 0.25)
+proximity_fade_enabled = true
+distance_fade_mode = 1
+distance_fade_max_distance = 28.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_21sof"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1.00136e-05, 1),
+"attribute_data": PackedByteArray(85, 85, 21, 63, 85, 85, 21, 62, 170, 170, 26, 63, 85, 85, 21, 62, 85, 85, 21, 63, 170, 170, 42, 62, 170, 170, 26, 63, 170, 170, 42, 62),
+"format": 34359742481,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0),
+"material": ExtResource("1_trhtl"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63)
+}, {
+"aabb": AABB(-0.5, -1.5, -0.5, 1, 1, 1),
+"format": 34359742465,
+"index_count": 30,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0, 0, 0, 2, 0, 4, 0, 0, 0, 4, 0, 5, 0, 1, 0, 3, 0, 6, 0, 1, 0, 6, 0, 7, 0, 0, 0, 1, 0, 7, 0, 0, 0, 7, 0, 5, 0, 2, 0, 3, 0, 4, 0, 3, 0, 6, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_mlli0"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191)
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_siibd"]
+atlas = ExtResource("4_mow2r")
+region = Rect2(1344, 336, 48, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gvxbf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_88d6w"]
+cull_mode = 2
+albedo_color = Color(0.8, 1, 1, 0.25)
+proximity_fade_enabled = true
+distance_fade_mode = 1
+distance_fade_max_distance = 28.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_5tcqm"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1.00136e-05, 1),
+"attribute_data": PackedByteArray(85, 85, 53, 63, 85, 85, 21, 62, 170, 170, 58, 63, 85, 85, 21, 62, 85, 85, 53, 63, 170, 170, 42, 62, 170, 170, 58, 63, 170, 170, 42, 62),
+"format": 34359742481,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0),
+"material": ExtResource("1_trhtl"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63)
+}, {
+"aabb": AABB(-0.5, -1.5, -0.5, 1, 1, 1),
+"format": 34359742465,
+"index_count": 30,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0, 0, 0, 2, 0, 4, 0, 0, 0, 4, 0, 5, 0, 1, 0, 3, 0, 6, 0, 1, 0, 6, 0, 7, 0, 0, 0, 1, 0, 7, 0, 0, 0, 7, 0, 5, 0, 2, 0, 3, 0, 4, 0, 3, 0, 6, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_88d6w"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191)
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hk0d8"]
+atlas = ExtResource("4_mow2r")
+region = Rect2(1632, 336, 48, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eaxwi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nqifj"]
+cull_mode = 2
+albedo_color = Color(0.8, 1, 1, 0.25)
+proximity_fade_enabled = true
+distance_fade_mode = 1
+distance_fade_max_distance = 28.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4iclf"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1.00136e-05, 1),
+"attribute_data": PackedByteArray(85, 85, 85, 63, 85, 85, 21, 62, 170, 170, 90, 63, 85, 85, 21, 62, 85, 85, 85, 63, 170, 170, 42, 62, 170, 170, 90, 63, 170, 170, 42, 62),
+"format": 34359742481,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0),
+"material": ExtResource("1_trhtl"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63)
+}, {
+"aabb": AABB(-0.5, -1.5, -0.5, 1, 1, 1),
+"format": 34359742465,
+"index_count": 30,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0, 0, 0, 2, 0, 4, 0, 0, 0, 4, 0, 5, 0, 1, 0, 3, 0, 6, 0, 1, 0, 6, 0, 7, 0, 0, 0, 1, 0, 7, 0, 0, 0, 7, 0, 5, 0, 2, 0, 3, 0, 4, 0, 3, 0, 6, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_nqifj"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191)
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iruo8"]
+atlas = ExtResource("4_mow2r")
+region = Rect2(1920, 336, 48, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5uba3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vn7da"]
+cull_mode = 2
+albedo_color = Color(0.8, 1, 1, 0.25)
+proximity_fade_enabled = true
+distance_fade_mode = 1
+distance_fade_max_distance = 28.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_kar1k"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1.00136e-05, 1),
+"attribute_data": PackedByteArray(85, 85, 117, 63, 85, 85, 21, 62, 170, 170, 122, 63, 85, 85, 21, 62, 85, 85, 117, 63, 170, 170, 42, 62, 170, 170, 122, 63, 170, 170, 42, 62),
+"format": 34359742481,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0),
+"material": ExtResource("1_trhtl"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63)
+}, {
+"aabb": AABB(-0.5, -1.5, -0.5, 1, 1, 1),
+"format": 34359742465,
+"index_count": 30,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0, 0, 0, 2, 0, 4, 0, 0, 0, 4, 0, 5, 0, 1, 0, 3, 0, 6, 0, 1, 0, 6, 0, 7, 0, 0, 0, 1, 0, 7, 0, 0, 0, 7, 0, 5, 0, 2, 0, 3, 0, 4, 0, 3, 0, 6, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_vn7da"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191)
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhsab"]
+atlas = ExtResource("4_mow2r")
+region = Rect2(2208, 336, 48, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yqnqq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_de5o0"]
+cull_mode = 2
+albedo_color = Color(0.8, 1, 1, 0.25)
+proximity_fade_enabled = true
+distance_fade_mode = 1
+distance_fade_max_distance = 28.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_gqtmt"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1.00136e-05, 1),
+"attribute_data": PackedByteArray(171, 170, 170, 61, 0, 0, 160, 62, 86, 85, 213, 61, 0, 0, 160, 62, 171, 170, 170, 61, 171, 170, 170, 62, 86, 85, 213, 61, 171, 170, 170, 62),
+"format": 34359742481,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0),
+"material": ExtResource("1_trhtl"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63)
+}, {
+"aabb": AABB(-0.5, -1.5, -0.5, 1, 1, 1),
+"format": 34359742465,
+"index_count": 30,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0, 0, 0, 2, 0, 4, 0, 0, 0, 4, 0, 5, 0, 1, 0, 3, 0, 6, 0, 1, 0, 6, 0, 7, 0, 0, 0, 1, 0, 7, 0, 0, 0, 7, 0, 5, 0, 2, 0, 3, 0, 4, 0, 3, 0, 6, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_de5o0"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191)
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkxnc"]
+atlas = ExtResource("4_mow2r")
+region = Rect2(192, 720, 48, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1rxxl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p8xxv"]
+cull_mode = 2
+albedo_color = Color(0.8, 1, 1, 0.25)
+proximity_fade_enabled = true
+distance_fade_mode = 1
+distance_fade_max_distance = 28.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_552ow"]
+_surfaces = [{
+"aabb": AABB(-0.5, -0.5, -0.5, 1, 1.00136e-05, 1),
+"attribute_data": PackedByteArray(85, 85, 85, 62, 0, 0, 160, 62, 170, 170, 106, 62, 0, 0, 160, 62, 85, 85, 85, 62, 171, 170, 170, 62, 170, 170, 106, 62, 171, 170, 170, 62),
+"format": 34359742481,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0),
+"material": ExtResource("1_trhtl"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63)
+}, {
+"aabb": AABB(-0.5, -1.5, -0.5, 1, 1, 1),
+"format": 34359742465,
+"index_count": 30,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 1, 0, 3, 0, 2, 0, 0, 0, 2, 0, 4, 0, 0, 0, 4, 0, 5, 0, 1, 0, 3, 0, 6, 0, 1, 0, 6, 0, 7, 0, 0, 0, 1, 0, 7, 0, 0, 0, 7, 0, 5, 0, 2, 0, 3, 0, 4, 0, 3, 0, 6, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_p8xxv"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 192, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 63, 0, 0, 0, 63, 0, 0, 0, 191, 0, 0, 0, 191)
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aw8o8"]
+atlas = ExtResource("4_mow2r")
+region = Rect2(480, 720, 48, 48)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_67d2p"]
+
+[sub_resource type="MeshLibrary" id="MeshLibrary_o4kvr"]
+item/0/name = "000"
+item/0/mesh = SubResource("ArrayMesh_dwysq")
+item/0/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/0/shapes = [SubResource("BoxShape3D_cx8dy"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/0/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/0/navigation_layers = 1
+item/0/preview = SubResource("AtlasTexture_li3oa")
+item/1/name = "001"
+item/1/mesh = SubResource("ArrayMesh_nxqeo")
+item/1/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/1/shapes = [SubResource("BoxShape3D_35cv0"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/1/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/1/navigation_layers = 1
+item/1/preview = SubResource("AtlasTexture_eq8k3")
+item/2/name = "002"
+item/2/mesh = SubResource("ArrayMesh_a61eu")
+item/2/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/2/shapes = [SubResource("BoxShape3D_pk710"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/2/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/2/navigation_layers = 1
+item/2/preview = SubResource("AtlasTexture_d2d5s")
+item/3/name = "003"
+item/3/mesh = SubResource("ArrayMesh_paymb")
+item/3/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/3/shapes = [SubResource("BoxShape3D_q7gw1"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/3/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/3/navigation_layers = 1
+item/3/preview = SubResource("AtlasTexture_sffu2")
+item/4/name = "004"
+item/4/mesh = SubResource("ArrayMesh_21sof")
+item/4/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/4/shapes = [SubResource("BoxShape3D_gvxbf"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/4/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/4/navigation_layers = 1
+item/4/preview = SubResource("AtlasTexture_siibd")
+item/5/name = "005"
+item/5/mesh = SubResource("ArrayMesh_5tcqm")
+item/5/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/5/shapes = [SubResource("BoxShape3D_eaxwi"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/5/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/5/navigation_layers = 1
+item/5/preview = SubResource("AtlasTexture_hk0d8")
+item/6/name = "006"
+item/6/mesh = SubResource("ArrayMesh_4iclf")
+item/6/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/6/shapes = [SubResource("BoxShape3D_5uba3"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/6/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/6/navigation_layers = 1
+item/6/preview = SubResource("AtlasTexture_iruo8")
+item/7/name = "007"
+item/7/mesh = SubResource("ArrayMesh_kar1k")
+item/7/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/7/shapes = [SubResource("BoxShape3D_yqnqq"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/7/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/7/navigation_layers = 1
+item/7/preview = SubResource("AtlasTexture_xhsab")
+item/8/name = "008"
+item/8/mesh = SubResource("ArrayMesh_gqtmt")
+item/8/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/8/shapes = [SubResource("BoxShape3D_1rxxl"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/8/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/8/navigation_layers = 1
+item/8/preview = SubResource("AtlasTexture_rkxnc")
+item/9/name = "009"
+item/9/mesh = SubResource("ArrayMesh_552ow")
+item/9/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/9/shapes = [SubResource("BoxShape3D_67d2p"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/9/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/9/navigation_layers = 1
+item/9/preview = SubResource("AtlasTexture_aw8o8")
+item/10/name = "010"
+item/10/mesh = SubResource("ArrayMesh_envkd")
+item/10/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/10/shapes = [SubResource("BoxShape3D_0iotk"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/10/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/10/navigation_layers = 1
+item/10/preview = SubResource("AtlasTexture_rvk6h")
+item/11/name = "011"
+item/11/mesh = SubResource("ArrayMesh_008q0")
+item/11/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/11/shapes = [SubResource("BoxShape3D_vixbr"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/11/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/11/navigation_layers = 1
+item/11/preview = SubResource("AtlasTexture_gq5pd")
+item/12/name = "012"
+item/12/mesh = SubResource("ArrayMesh_eeb8a")
+item/12/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/12/shapes = [SubResource("BoxShape3D_rwmn3"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/12/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/12/navigation_layers = 1
+item/12/preview = SubResource("AtlasTexture_vmiwb")
+item/13/name = "013"
+item/13/mesh = SubResource("ArrayMesh_ywiex")
+item/13/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/13/shapes = [SubResource("BoxShape3D_xoil6"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/13/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/13/navigation_layers = 1
+item/13/preview = SubResource("AtlasTexture_enjlv")
+item/14/name = "014"
+item/14/mesh = SubResource("ArrayMesh_i4k80")
+item/14/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/14/shapes = [SubResource("BoxShape3D_jqv46"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/14/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/14/navigation_layers = 1
+item/14/preview = SubResource("AtlasTexture_5j3q0")
+item/15/name = "015"
+item/15/mesh = SubResource("ArrayMesh_1df7o")
+item/15/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/15/shapes = [SubResource("BoxShape3D_eo32b"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/15/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/15/navigation_layers = 1
+item/15/preview = SubResource("AtlasTexture_n78ek")
+item/16/name = "016"
+item/16/mesh = SubResource("ArrayMesh_60ga4")
+item/16/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/16/shapes = [SubResource("BoxShape3D_7mllw"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/16/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/16/navigation_layers = 1
+item/16/preview = SubResource("AtlasTexture_540ii")
+item/17/name = "017"
+item/17/mesh = SubResource("ArrayMesh_qd4i3")
+item/17/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/17/shapes = [SubResource("BoxShape3D_utxxx"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/17/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/17/navigation_layers = 1
+item/17/preview = SubResource("AtlasTexture_d7y57")
+item/18/name = "018"
+item/18/mesh = SubResource("ArrayMesh_jmafx")
+item/18/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/18/shapes = [SubResource("BoxShape3D_bd3lc"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/18/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/18/navigation_layers = 1
+item/18/preview = SubResource("AtlasTexture_l7iti")
+item/19/name = "019"
+item/19/mesh = SubResource("ArrayMesh_iq5mk")
+item/19/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/19/shapes = [SubResource("BoxShape3D_l5vk0"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/19/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/19/navigation_layers = 1
+item/19/preview = SubResource("AtlasTexture_hy818")
+item/20/name = "020"
+item/20/mesh = SubResource("ArrayMesh_a2ysx")
+item/20/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/20/shapes = [SubResource("BoxShape3D_kymes"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/20/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/20/navigation_layers = 1
+item/20/preview = SubResource("AtlasTexture_sp0d5")
+item/21/name = "021"
+item/21/mesh = SubResource("ArrayMesh_ege8u")
+item/21/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/21/shapes = [SubResource("BoxShape3D_wwt48"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/21/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/21/navigation_layers = 1
+item/21/preview = SubResource("AtlasTexture_yfr37")
+item/22/name = "022"
+item/22/mesh = SubResource("ArrayMesh_ckcsn")
+item/22/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/22/shapes = [SubResource("BoxShape3D_ndbks"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/22/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/22/navigation_layers = 1
+item/22/preview = SubResource("AtlasTexture_tnxcv")
+item/23/name = "023"
+item/23/mesh = SubResource("ArrayMesh_fipoc")
+item/23/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/23/shapes = [SubResource("BoxShape3D_gb2a2"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/23/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/23/navigation_layers = 1
+item/23/preview = SubResource("AtlasTexture_omnyh")
+item/24/name = "024"
+item/24/mesh = SubResource("ArrayMesh_5px0f")
+item/24/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/24/shapes = [SubResource("BoxShape3D_64r86"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/24/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/24/navigation_layers = 1
+item/24/preview = SubResource("AtlasTexture_xlkvw")
+item/25/name = "025"
+item/25/mesh = SubResource("ArrayMesh_iqkjb")
+item/25/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/25/shapes = [SubResource("BoxShape3D_1edsw"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/25/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/25/navigation_layers = 1
+item/25/preview = SubResource("AtlasTexture_1hqi3")
+item/26/name = "026"
+item/26/mesh = SubResource("ArrayMesh_avrqg")
+item/26/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/26/shapes = [SubResource("BoxShape3D_5ilhi"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/26/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/26/navigation_layers = 1
+item/26/preview = SubResource("AtlasTexture_w1vw7")
+item/27/name = "027"
+item/27/mesh = SubResource("ArrayMesh_vdj3j")
+item/27/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/27/shapes = [SubResource("BoxShape3D_3r1fr"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/27/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/27/navigation_layers = 1
+item/27/preview = SubResource("AtlasTexture_jqyxy")
+item/28/name = "028"
+item/28/mesh = SubResource("ArrayMesh_p8cxt")
+item/28/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/28/shapes = [SubResource("BoxShape3D_l4uug"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/28/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/28/navigation_layers = 1
+item/28/preview = SubResource("AtlasTexture_ysm05")
+item/29/name = "029"
+item/29/mesh = SubResource("ArrayMesh_43kpu")
+item/29/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/29/shapes = [SubResource("BoxShape3D_2piee"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/29/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/29/navigation_layers = 1
+item/29/preview = SubResource("AtlasTexture_j5eyh")
+item/30/name = "030"
+item/30/mesh = SubResource("ArrayMesh_db0pp")
+item/30/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/30/shapes = [SubResource("BoxShape3D_irty3"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/30/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/30/navigation_layers = 1
+item/30/preview = SubResource("AtlasTexture_7q8hm")
+item/31/name = "031"
+item/31/mesh = SubResource("ArrayMesh_2cuc3")
+item/31/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/31/shapes = [SubResource("BoxShape3D_cn3jg"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)]
+item/31/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/31/navigation_layers = 1
+item/31/preview = SubResource("AtlasTexture_datej")
+
+[sub_resource type="GDScript" id="GDScript_vf5qd"]
+script/source = "@tool
+extends GridMap
+@export var bake:bool:
+	set(v):
+		bake=false
+		get_parent().bake_grid_map()
+@export var re_edit:bool:
+	set(v):
+		re_edit=false
+		get_parent().re_edit_grid_mesh()
+@export var clear_all_cells:bool:
+	set(v):
+		clear_all_cells=false
+		self.clear()"
+
+[node name="Node3D" type="Node3D"]
+
+[node name="TileMap3D" type="MeshInstance3D" parent="." node_paths=PackedStringArray("tile_map_x", "tile_map_y", "tile_map_z", "grid_map")]
+mesh = SubResource("ArrayMesh_jafs8")
+script = ExtResource("2_wsgy8")
+tile_map_x = NodePath("TileMap_X")
+tile_map_y = NodePath("TileMap_Y")
+tile_map_z = NodePath("TileMap_Z")
+tile_material = ExtResource("1_trhtl")
+init_grid_map_btn = true
+grid_map = NodePath("@GridMap@19695")
+tile_set = ExtResource("3_ifx8g")
+grid_material = ExtResource("1_trhtl")
+
+[node name="@GridMap@19695" type="GridMap" parent="TileMap3D"]
+visible = false
+mesh_library = SubResource("MeshLibrary_o4kvr")
+cell_size = Vector3(1, 1, 1)
+collision_layer = 255
+collision_mask = 255
+data = {
+"cells": PackedInt32Array(0, 0, 0, 2, 0, 0, 2, 1, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0)
+}
+script = SubResource("GDScript_vf5qd")
+metadata/_editor_floor_ = Vector3(1, 1, 1)
+
+[node name="TileMap_X" type="TileMap" parent="TileMap3D"]
+tile_set = ExtResource("3_ifx8g")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 262144, 7, 2, 655360, 7, 4, 1048576, 7, 6, 1441792, 7, 8, 1835008, 7, 10, 2228224, 7, 12, 2621440, 7, 14, 3014656, 7, 16, 262144, 15, 18, 655360, 15, 20, 1048576, 15, 22, 1441792, 15, 24, 1835008, 15, 26, 2228224, 15, 28, 2621440, 15, 30, 3014656, 15, 32, 262144, 23, 34, 655360, 23, 36, 1048576, 23, 38, 1441792, 23, 40, 1835008, 23, 42, 2228224, 23, 44, 2621440, 23, 46, 3014656, 23, 48, 262144, 31, 50, 655360, 31, 52, 1048576, 31, 54, 1441792, 31, 56, 1835008, 31, 58, 2228224, 31, 60, 2621440, 31, 62, 3014656, 31)
+
+[node name="TileMap_Y" type="TileMap" parent="TileMap3D"]
+tile_set = ExtResource("3_ifx8g")
+format = 2
+
+[node name="TileMap_Z" type="TileMap" parent="TileMap3D"]
+tile_set = ExtResource("3_ifx8g")
+format = 2
