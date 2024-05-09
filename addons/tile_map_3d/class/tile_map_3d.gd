@@ -1,7 +1,7 @@
 #01. @tool
 @tool
 #02. class_name
-@icon("./TileMap3D.svg")
+@icon("../image/TileMap3D.svg")
 class_name TileMap3D
 #03. extends
 extends MeshInstance3D
@@ -21,13 +21,23 @@ extends MeshInstance3D
 #06. enums
 #-----------------------------------------------------------
 
+enum TileType {
+	None,
+	A1,
+	A2,
+	A3,
+	A4
+}
 
 
 #-----------------------------------------------------------
 #07. constants
 #-----------------------------------------------------------
 
-
+const DUMMY_A_1_TILESET = preload("res://addons/tile_map_3d/tileset/dummy_a1.tres")
+const DUMMY_A_2_TILESET = preload("res://addons/tile_map_3d/tileset/dummy_a2.tres")
+const DUMMY_A_3_TILESET = preload("res://addons/tile_map_3d/tileset/dummy_a3.tres")
+const DUMMY_A_4_TILESET = preload("res://addons/tile_map_3d/tileset/dummy_a4.tres")
 
 #endregion
 #-----------------------------------------------------------
@@ -44,6 +54,20 @@ extends MeshInstance3D
 
 @export_category("BaseTile Settings")
 
+@export var tile_type:TileType = TileType.None:
+	set(v):
+		tile_type = v
+		if tile_type == TileType.A1:
+			tile_set = DUMMY_A_1_TILESET
+		elif tile_type == TileType.A2:
+			tile_set = DUMMY_A_2_TILESET
+		elif tile_type == TileType.A3:
+			tile_set = DUMMY_A_2_TILESET
+		elif tile_type == TileType.A4:
+			tile_set = DUMMY_A_2_TILESET
+		else:
+			tile_set = null
+
 @export var tile_map_x: TileMap
 @export var tile_map_y: TileMap
 @export var tile_map_z: TileMap
@@ -51,6 +75,7 @@ extends MeshInstance3D
 @export var tile_layer_height: float = 1.0
 @export var tile_layer_height_start: float = 0.0
 @export var tile_material:Material
+@export var tile_texture:Texture
 
 
 @export_category("Grid Map")
@@ -96,9 +121,12 @@ extends MeshInstance3D
 					tile_map_z.owner = EditorInterface.get_edited_scene_root()
 					tile_map_z.name = "TileMap_Z"
 					self.tile_map_z = tile_map_z
+				tile_map_x.tile_set = tile_set
+				tile_map_y.tile_set = tile_set
+				tile_map_z.tile_set = tile_set
 
 @export var grid_map:GridMap = null
-@export var tile_set:TileSet = null:
+var tile_set:TileSet = null:
 	set(v):
 		tile_set = v
 		if Engine.is_editor_hint():
@@ -409,7 +437,7 @@ func bake_grid_map():
 	var tileset_src:TileSetAtlasSource= tile_set.get_source(0)
 	var st:=SurfaceTool.new()
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
-	var tile_texture:Texture2D= tileset_src.texture
+	#var tile_texture:Texture2D= tileset_src.texture
 	
 	# TODO
 	# 面の角度で投影する高さレイヤーの取得方法を変更する
@@ -488,6 +516,12 @@ func bake_grid_map():
 	tile_set.set_custom_data_layer_name(0, &"basis")
 	tile_set.set_custom_data_layer_type(0, TYPE_BASIS)
 	
+	var arr:Array= []
+	arr.resize(Mesh.ARRAY_MAX)
+	var vary:Array = []
+	var uary:Array = []
+	var inds:Array = []
+		
 	for xyz in xyz_layer_mesh_xycoords_ary.keys():
 		var tile_map:TileMap
 		if xyz == 0:
@@ -515,11 +549,42 @@ func bake_grid_map():
 			#surface_vertex_array.resize(ArrayMesh.ARRAY_MAX)
 			for cell in cells:
 				var tile_data:= tile_map.get_cell_tile_data(layer_index,cell)
-				var tile_atlas_coord:Vector2= Vector2(tile_map.get_cell_atlas_coords(layer_index,cell))
-				#var real_image_rect:Rect2i = Rect2i(tile_atlas_coord * tilesize, Vector2i(tilesize,tilesize))
+				#var tile_atlas_coord:Vector2= Vector2(tile_map.get_cell_atlas_coords(layer_index,cell))
+				var tile_atlas_coord:Vector2i= tile_map.get_cell_atlas_coords(layer_index,cell)
+				
 				var uv_tile_size_x:float = tilesize / float(tile_texture.get_width())
 				var uv_tile_size_y:float = tilesize / float(tile_texture.get_height())
-				var uv_rect:Rect2 = Rect2(Vector2(tile_atlas_coord.x* uv_tile_size_x, tile_atlas_coord.y * uv_tile_size_y), Vector2i(uv_tile_size_x,uv_tile_size_y))
+				var uv_rects:Array[Rect2] = []
+				#var uv_rect:Rect2
+				
+				if tile_type == TileType.A1\
+					or tile_type == TileType.A2:
+					# A1セル
+					# 使用するオートタイルの位置（2x3を１マスとしてその座標）
+					var autotilegroup_coord:Vector2i = Vector2i(tile_atlas_coord.x / 6, tile_atlas_coord.y / 8)
+					var uv_autotile_group_base_pixel:Vector2 = Vector2(autotilegroup_coord.x * uv_tile_size_x * 2, autotilegroup_coord.y * uv_tile_size_y * 3)
+					# 個々のタイル位置
+					var in_autotilegroup_coord:Vector2i = Vector2i(tile_atlas_coord.x % 6, tile_atlas_coord.y % 8)
+					var tile_coords:Array = COORDS_6CELL[in_autotilegroup_coord.y][in_autotilegroup_coord.x]
+					for coord in tile_coords:
+						var uv_in_autotile_base_pixel:Vector2 = Vector2(coord.x * uv_tile_size_x, coord.y * uv_tile_size_y)
+						uv_rects.append(Rect2(uv_autotile_group_base_pixel + uv_in_autotile_base_pixel, Vector2(uv_tile_size_x / 2.0, uv_tile_size_y / 2.0) ))
+				elif tile_type == TileType.A2:
+					# A2セル
+					# 使用するオートタイルの位置（2x3を１マスとしてその座標）
+					var autotilegroup_coord:Vector2i = Vector2i(tile_atlas_coord.x / 6, tile_atlas_coord.y / 8)
+					var uv_autotile_group_base_pixel:Vector2 = Vector2(autotilegroup_coord.x * uv_tile_size_x * 2, autotilegroup_coord.y * uv_tile_size_y * 3)
+					# 個々のタイル位置
+					var in_autotilegroup_coord:Vector2i = Vector2i(tile_atlas_coord.x % 6, tile_atlas_coord.y % 8)
+					var tile_coords:Array = COORDS_6CELL[in_autotilegroup_coord.y][in_autotilegroup_coord.x]
+					for coord in tile_coords:
+						var uv_in_autotile_base_pixel:Vector2 = Vector2(coord.x * uv_tile_size_x, coord.y * uv_tile_size_y)
+						uv_rects.append(Rect2(uv_autotile_group_base_pixel + uv_in_autotile_base_pixel, Vector2(uv_tile_size_x / 2.0, uv_tile_size_y / 2.0) ))
+				
+				
+				#var real_image_rect:Rect2i = Rect2i(tile_atlas_coord * tilesize, Vector2i(tilesize,tilesize))
+				
+				#var uv_rect:Rect2 = Rect2(Vector2(tile_atlas_coord.x* uv_tile_size_x, tile_atlas_coord.y * uv_tile_size_y), Vector2i(uv_tile_size_x,uv_tile_size_y))
 				
 				var height:float = layer_index * tile_layer_height + tile_layer_height_start
 				
@@ -557,113 +622,125 @@ func bake_grid_map():
 				if slope_bottom_cell_count != 0:
 					katamuki_h = tile_size.x * tan(radian)
 				
-				
-				var triangle_1:PackedVector3Array
-				var triangle_2:PackedVector3Array
-				
-				var uv_1:PackedVector2Array
-				var uv_2:PackedVector2Array
-				uv_1 = [
-					Vector2(uv_rect.position.x, uv_rect.position.y),
-					Vector2(uv_rect.position.x + uv_tile_size_x, uv_rect.position.y),
-					Vector2(uv_rect.position.x, uv_rect.position.y + uv_tile_size_y),
-				]
-				uv_2 = [
-					Vector2(uv_rect.position.x + uv_tile_size_x, uv_rect.position.y),
-					Vector2(uv_rect.position.x + uv_tile_size_x, uv_rect.position.y + uv_tile_size_y),
-					Vector2(uv_rect.position.x, uv_rect.position.y + uv_tile_size_y),
-				]
-
-				if xyz == 0: # 左右 X
-					cell =-cell
-					triangle_1 = [
-						Vector3(height + katamuki_h, cell.y,cell.x),
-						Vector3(height + katamuki_h, cell.y,cell.x + tile_size.x),
-						Vector3(height, cell.y + tile_size.y, cell.x),
-					]
-					triangle_2 = [
-						Vector3(height + katamuki_h, cell.y,cell.x + tile_size.x),
-						Vector3(height, cell.y + tile_size.y,cell.x + tile_size.x),
-						Vector3(height, cell.y + tile_size.y, cell.x),
-					]
-
-					# UVを180度回転
+				var halfcells:Array[Vector2] = [Vector2.ZERO, Vector2(0.5,0), Vector2(0, 0.5), Vector2(0.5, 0.5)]
+				for i in range(4):
+					var cell_v2:Vector2 = Vector2(cell) + halfcells[i]
+					var tile_size_v2 = Vector2(tile_size.x / 2, tile_size.y / 2)
+					var uv_rect:Rect2 = uv_rects[i]
+					
+					var triangle_1:PackedVector3Array
+					var triangle_2:PackedVector3Array
+					
+					var uv_1:PackedVector2Array
+					var uv_2:PackedVector2Array
 					uv_1 = [
-						Vector2(uv_rect.position.x + uv_tile_size_x, uv_rect.position.y + uv_tile_size_y),
-						Vector2(uv_rect.position.x, uv_rect.position.y + uv_tile_size_y),
-						Vector2(uv_rect.position.x + uv_tile_size_x, uv_rect.position.y),
+						Vector2(uv_rect.position.x, uv_rect.position.y),
+						Vector2(uv_rect.position.x + uv_rect.size.x, uv_rect.position.y),
+						Vector2(uv_rect.position.x, uv_rect.position.y + uv_rect.size.y),
 					]
 					uv_2 = [
-						Vector2(uv_rect.position.x, uv_rect.position.y + uv_tile_size_y),
-						Vector2(uv_rect.position.x, uv_rect.position.y),
-						Vector2(uv_rect.position.x + uv_tile_size_x, uv_rect.position.y),
+						Vector2(uv_rect.position.x + uv_rect.size.x, uv_rect.position.y),
+						Vector2(uv_rect.position.x + uv_rect.size.x, uv_rect.position.y + uv_rect.size.y),
+						Vector2(uv_rect.position.x, uv_rect.position.y + uv_rect.size.y),
 					]
 
-				elif xyz == 1: # 床 Y
-					triangle_1 = [
-						Vector3(cell.x, height + katamuki_h,cell.y),
-						Vector3(cell.x + tile_size.x,height + katamuki_h, cell.y),
-						Vector3(cell.x, height,cell.y + tile_size.y),
-					]
-					triangle_2 = [
-						Vector3(cell.x + tile_size.x,height + katamuki_h, cell.y),
-						Vector3(cell.x + tile_size.x,height, cell.y + tile_size.y),
-						Vector3(cell.x, height, cell.y + tile_size.y),
-					]
-				elif xyz == 2: # 前後 Z
-					cell =-cell
-					triangle_1 = [
-						Vector3(cell.x, cell.y, height + katamuki_h),
-						Vector3(cell.x +tile_size.x, cell.y, height + katamuki_h),
-						Vector3(cell.x, cell.y + tile_size.y, height),
-					]
-					triangle_2 = [
-						Vector3(cell.x + tile_size.x, cell.y, height + katamuki_h),
-						Vector3(cell.x + tile_size.x, cell.y + tile_size.y, height),
-						Vector3(cell.x, cell.y + tile_size.y, height),
-					]
+					if xyz == 0: # 左右 X
+						cell_v2 =-cell_v2
+						triangle_1 = [
+							Vector3(height + katamuki_h, cell_v2.y,cell_v2.x),
+							Vector3(height + katamuki_h, cell_v2.y,cell_v2.x + tile_size_v2.x),
+							Vector3(height, cell_v2.y + tile_size_v2.y, cell_v2.x),
+						]
+						triangle_2 = [
+							Vector3(height + katamuki_h, cell_v2.y,cell_v2.x + tile_size_v2.x),
+							Vector3(height, cell_v2.y + tile_size_v2.y,cell_v2.x + tile_size_v2.x),
+							Vector3(height, cell_v2.y + tile_size_v2.y, cell_v2.x),
+						]
 
-					# UVを180度回転
-					uv_1 = [
-						Vector2(uv_rect.position.x + uv_tile_size_x, uv_rect.position.y + uv_tile_size_y),
-						Vector2(uv_rect.position.x, uv_rect.position.y + uv_tile_size_y),
-						Vector2(uv_rect.position.x + uv_tile_size_x, uv_rect.position.y),
-					]
-					uv_2 = [
-						Vector2(uv_rect.position.x, uv_rect.position.y + uv_tile_size_y),
-						Vector2(uv_rect.position.x, uv_rect.position.y),
-						Vector2(uv_rect.position.x + uv_tile_size_x, uv_rect.position.y),
-					]
+						# UVを180度回転
+						uv_1 = [
+							Vector2(uv_rect.position.x + uv_tile_size_x, uv_rect.position.y + uv_tile_size_y),
+							Vector2(uv_rect.position.x, uv_rect.position.y + uv_tile_size_y),
+							Vector2(uv_rect.position.x + uv_tile_size_x, uv_rect.position.y),
+						]
+						uv_2 = [
+							Vector2(uv_rect.position.x, uv_rect.position.y + uv_tile_size_y),
+							Vector2(uv_rect.position.x, uv_rect.position.y),
+							Vector2(uv_rect.position.x + uv_tile_size_x, uv_rect.position.y),
+						]
+
+					elif xyz == 1: # 床 Y
+						triangle_1 = [
+							Vector3(cell_v2.x, height + katamuki_h,cell_v2.y),
+							Vector3(cell_v2.x + tile_size_v2.x,height + katamuki_h, cell_v2.y),
+							Vector3(cell_v2.x, height,cell_v2.y + tile_size_v2.y),
+						]
+						triangle_2 = [
+							Vector3(cell_v2.x + tile_size_v2.x,height + katamuki_h, cell_v2.y),
+							Vector3(cell_v2.x + tile_size_v2.x,height, cell_v2.y + tile_size_v2.y),
+							Vector3(cell_v2.x, height, cell_v2.y + tile_size_v2.y),
+						]
+					elif xyz == 2: # 前後 Z
+						cell_v2 =-cell_v2
+						triangle_1 = [
+							Vector3(cell_v2.x, cell_v2.y, height + katamuki_h),
+							Vector3(cell_v2.x + tile_size_v2.x, cell_v2.y, height + katamuki_h),
+							Vector3(cell_v2.x, cell_v2.y + tile_size_v2.y, height),
+						]
+						triangle_2 = [
+							Vector3(cell_v2.x + tile_size_v2.x, cell_v2.y, height + katamuki_h),
+							Vector3(cell_v2.x + tile_size_v2.x, cell_v2.y + tile_size_v2.y, height),
+							Vector3(cell_v2.x, cell_v2.y + tile_size_v2.y, height),
+						]
+
+						# UVを180度回転
+						uv_1 = [
+							Vector2(uv_rect.position.x + uv_tile_size_x, uv_rect.position.y + uv_tile_size_y),
+							Vector2(uv_rect.position.x, uv_rect.position.y + uv_tile_size_y),
+							Vector2(uv_rect.position.x + uv_tile_size_x, uv_rect.position.y),
+						]
+						uv_2 = [
+							Vector2(uv_rect.position.x, uv_rect.position.y + uv_tile_size_y),
+							Vector2(uv_rect.position.x, uv_rect.position.y),
+							Vector2(uv_rect.position.x + uv_tile_size_x, uv_rect.position.y),
+						]
 
 
-				#st.set_uv(real_image_rect.position)
-				st.set_uv(uv_1[0])
-				st.add_vertex(triangle_1[0])
-				st.set_uv(uv_1[1])
-				#print(Vector2(uv_rect.position.x + uv_tile_size_x, uv_rect.position.y))
-				st.add_vertex(triangle_1[1])
-				st.set_uv(uv_1[2])
-				#print(Vector2(uv_rect.position.x, uv_rect.position.y + uv_tile_size_y))
-				st.add_vertex(triangle_1[2])
+					#st.set_uv(real_image_rect.position)
+					st.set_uv(uv_1[0])
+					st.add_vertex(triangle_1[0])
+					st.set_uv(uv_1[1])
+					#print(Vector2(uv_rect.position.x + uv_tile_size_x, uv_rect.position.y))
+					st.add_vertex(triangle_1[1])
+					st.set_uv(uv_1[2])
+					#print(Vector2(uv_rect.position.x, uv_rect.position.y + uv_tile_size_y))
+					st.add_vertex(triangle_1[2])
 
-				# 2
-				st.set_uv(uv_2[0])
-				st.add_vertex(triangle_2[0])
-				st.set_uv(uv_2[1])
-				st.add_vertex(triangle_2[1])
-				st.set_uv(uv_2[2])
-				st.add_vertex(triangle_2[2])
-		
+					# 2
+					st.set_uv(uv_2[0])
+					st.add_vertex(triangle_2[0])
+					st.set_uv(uv_2[1])
+					st.add_vertex(triangle_2[1])
+					st.set_uv(uv_2[2])
+					st.add_vertex(triangle_2[2])
+		#
 	st.index()
 	
 	if tile_material:
-		tile_material.albedo_texture = tile_texture
 		st.set_material(tile_material)
 	else:
 		var mat = create_material(tile_texture)
 		st.set_material(mat)
-		#ResourceSaver.save(mat,"res://mat.tres")
 	ary_mesh = st.commit()
+	
+	#var verts = PackedVector3Array(vary)
+	#var indices = PackedInt32Array(inds)
+	#var uvs = PackedVector2Array(uary)
+	#arr[Mesh.ARRAY_VERTEX] = verts
+	#arr[Mesh.ARRAY_INDEX] = indices
+	#arr[Mesh.ARRAY_TEX_UV] = uvs
+	#ary_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arr,[],{})
+
 	grid_map.set_meta(&"_editor_floor_", Vector3(1,1,1))
 	#ResourceSaver.save(ary_mesh,"res://ary_mesh.tres")
 		
@@ -926,6 +1003,84 @@ func set_floor(hit_position:Vector3,ray_dir:Vector3) -> void:
 	EditorInterface.get_selection().clear()
 	await get_tree().process_frame
 	EditorInterface.get_selection().add_node(grid_map)
+
+
+const CellSize:float = 1.0
+const HalfCellSize:float = 0.5
+
+# 1 = 島
+# 1A 1B
+# 1C 1D
+var i1a:Vector2 = Vector2(0,HalfCellSize*2)
+var i1b:Vector2 = Vector2(HalfCellSize*3,HalfCellSize*2)
+var i1c:Vector2 = Vector2(0,HalfCellSize*5)
+var i1d:Vector2 = Vector2(HalfCellSize*3,HalfCellSize*5)
+
+# 2 = 左右
+# 2A 2B
+# 2C 2D
+var i2a:Vector2 = Vector2(0,HalfCellSize*4)
+var i2b:Vector2 = Vector2(HalfCellSize*3,HalfCellSize*4)
+var i2c:Vector2 = Vector2(0,HalfCellSize*3)
+var i2d:Vector2 = Vector2(HalfCellSize*3,HalfCellSize*3)
+
+# 3 = 上下
+# 3A 3B
+# 3C 3D
+var i3a:Vector2 = Vector2(HalfCellSize*2,HalfCellSize*2)
+var i3b:Vector2 = Vector2(HalfCellSize,HalfCellSize*2)
+var i3c:Vector2 = Vector2(HalfCellSize*2,HalfCellSize*5)
+var i3d:Vector2 = Vector2(HalfCellSize,HalfCellSize*5)
+
+# 4 = 4つ角
+# 4A 4B
+# 4C 4D
+var i4a:Vector2 = Vector2(HalfCellSize*2,0)
+var i4b:Vector2 = Vector2(HalfCellSize*3,0)
+var i4c:Vector2 = Vector2(HalfCellSize*2,HalfCellSize)
+var i4d:Vector2 = Vector2(HalfCellSize*3,HalfCellSize)
+
+# 5 = 全面
+# 5A 5B
+# 5C 5D
+var i5a:Vector2 = Vector2(HalfCellSize,HalfCellSize*3)
+var i5b:Vector2 = Vector2(HalfCellSize*2,HalfCellSize*3)
+var i5c:Vector2 = Vector2(HalfCellSize,HalfCellSize*4)
+var i5d:Vector2 = Vector2(HalfCellSize*2,HalfCellSize*4)
+
+# 6 = サムネ用
+var i6a:Vector2 = Vector2(0,0)
+var i6b:Vector2 = Vector2(HalfCellSize,0)
+var i6c:Vector2 = Vector2(0,HalfCellSize)
+var i6d:Vector2 = Vector2(HalfCellSize,HalfCellSize)
+
+# ↓↓↓↓↓
+
+var COORDS_6CELL:Array = [
+# 5D 5C 5B 5A,  4A 5C 5B 5A,  5D 4B 5B 5A,  4A 4B 5B 5A,  5D 5C 5B 4D,  4A 5C 5B 4D
+	[[i5d,i5c,i5b,i5a],[i4a,i5c,i5b,i5a],[i5d,i4b,i5b,i5a],[i4a,i4b,i5b,i5a],[i5d,i5c,i5b,i4d],[i4a,i5c,i5b,i4d]],
+# -- -- * -- -- * -- -- * -- -- * -- -- * -- --
+# 5D 4B 5B 4D,  4A 4B 5B 4D,  5D 5C 4C 5A,  4A 5C 4C 5A,  5D 4B 4C 5A,  4A 4B 4C 5A
+	[[i5d,i4b,i5b,i4d],[i4a,i4b,i5b,i4d],[i5d,i5c,i4c,i5a],[i4a,i5c,i4c,i5a],[i5d,i4b,i4c,i5a],[i4a,i4b,i4c,i5a]],
+# -- -- * -- -- * -- -- * -- -- * -- -- * -- --
+# 5D 5C 4C 4D,  4A 5C 4C 4D,  5D 4B 4C 4D,  4A 4B 4C 4D,  2A 5C 2C 5A,  2A 4B 2C 5A
+	[[i5d,i5c,i4c,i4d],[i4a,i5c,i4c,i4d],[i5d,i4b,i4c,i4d],[i4a,i4b,i4c,i4d],[i2a,i5c,i2c,i5a],[i2a,i4b,i2c,i5a]],
+# -- -- * -- -- * -- -- * -- -- * -- -- * -- --
+# 2A 5C 2C 4D,  2A 4B 2C 4D,  3A 3B 5B 5A,  3A 3B 5B 4D,  3A 3B 4C 5A,  3A 3B 4C 4D
+	[[i2a,i5c,i2c,i4d],[i2a,i4b,i2c,i4d],[i3a,i3b,i5b,i5a],[i3a,i3b,i5b,i4d],[i3a,i3b,i4c,i5a],[i3a,i3b,i4c,i4d]],
+# -- -- * -- -- * -- -- * -- -- * -- -- * -- --
+# 5D 2B 5B 2D,  5D 2B 4C 2D,  4A 2B 5B 2D,  4A 2B 4C 2D,  5D 5C 3C 3D,  4A 5C 3C 3D
+	[[i5d,i2b,i5b,i2d],[i5d,i2b,i4c,i2d],[i4a,i2b,i5b,i2d],[i4a,i2b,i4c,i2d],[i5d,i5c,i3c,i3d],[i4a,i5c,i3c,i3d]],
+# -- -- * -- -- * -- -- * -- -- * -- -- * -- --
+# 5D 4B 3C 3D,  4A 4B 3C 3D,  2A 2B 2C 2D,  3A 3B 3C 3D,  1A 3B 2C 5A,  1A 3B 2C 4D
+	[[i5d,i4b,i3c,i3d],[i4a,i4b,i3c,i3d],[i2a,i2b,i2c,i2d],[i3a,i3b,i3c,i3d],[i1a,i3b,i2c,i5a],[i1a,i3b,i2c,i4d]],
+# -- -- * -- -- * -- -- * -- -- * -- -- * -- --
+# 3A 1B 5B 2D,  3A 1B 4C 2D,  5D 2B 3C 1D,  4A 2B 3C 1D,  2A 5C 1C 3D,  2A 4B 1C 3D
+	[[i3a,i1b,i5b,i2d],[i3a,i1b,i4c,i2d],[i5d,i2b,i3c,i1d],[i4a,i2b,i3c,i1d],[i2a,i5c,i1c,i3d],[i2a,i4b,i1c,i3d]],
+# -- -- * -- -- * -- -- * -- -- * -- -- * -- --
+# 1A 1B 2C 2D,  1A 3B 1C 3D,  2A 2B 1C 1D,  3A 1B 3C 1D,  1A 1B 1C 1D,  6A 6B 6C 6D
+	[[i1a,i1b,i2c,i2d],[i1a,i3b,i1c,i3d],[i2a,i2b,i1c,i1d],[i3a,i1b,i3c,i1d],[i1a,i1b,i1c,i1d],[i6a,i6b,i6c,i6d]]
+]
 
 #func conv_coord_to_triangles_arrays(coord:Vector2i) -> Array:
 	#var arrays = []

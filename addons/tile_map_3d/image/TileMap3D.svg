@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g id="Artboard1" transform="matrix(1.5,0,0,1.5,0,0)">
+        <rect x="0" y="0" width="16" height="16" style="fill:none;"/>
+        <g transform="matrix(0.952381,0,0,0.952381,0.380952,0.380952)">
+            <path d="M1,1L1,3L3,3L3,1L1,1ZM4,1L4,3L6,3L6,1L4,1ZM7,1L7,3L9,3L9,1L7,1ZM10,1L10,3L12,3L12,1L10,1ZM13,1L13,3L15,3L15,1L13,1ZM1,4L1,6L3,6L3,4L1,4ZM4,4L4,6L6,6L6,4L4,4ZM7,4L7,6L9,6L9,4L7,4ZM10,4L10,6L12,6L12,4L10,4ZM13,4L13,6L15,6L15,4L13,4ZM1,7L1,9L3,9L3,7L1,7ZM4,7L4,9L6,9L6,7L4,7ZM7,7L7,9L9,9L9,7L7,7ZM10,7L10,9L12,9L12,7L10,7ZM13,7L13,9L15,9L15,7L13,7ZM1,10L1,12L3,12L3,10L1,10ZM4,10L4,12L6,12L6,10L4,10ZM7,10L7,12L9,12L9,10L7,10ZM10,10L10,12L12,12L12,10L10,10ZM13,10L13,12L15,12L15,10L13,10ZM1,13L1,15L3,15L3,13L1,13ZM4,13L4,15L6,15L6,13L4,13ZM7,13L7,15L9,15L9,13L7,13ZM10,13L10,15L12,15L12,13L10,13ZM13,13L13,15L15,15L15,13L13,13Z" style="fill:rgb(252,127,127);fill-opacity:0.99;fill-rule:nonzero;"/>
+        </g>
+    </g>
+</svg>

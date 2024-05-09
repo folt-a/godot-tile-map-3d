@@ -18,7 +18,6 @@ func _forward_3d_gui_input(camera, event) -> int:
 
 func _raycast(camera:Node, event:InputEvent) -> void:
 	if event is InputEventKey and event.physical_keycode == KEY_V and event.is_released():
-		print("Ray")
 		var mouse_position:= camera.get_viewport().get_mouse_position()
 		var ray_origin = camera.project_ray_origin(mouse_position)
 		var ray_dir = camera.project_ray_normal(mouse_position)
@@ -45,11 +44,10 @@ func _selection_changed() -> void:
 	var selection = EditorInterface.get_selection().get_selected_nodes()
 	editable_object = selection.size() == 1 and (selection[0] is GridMap or selection[0] is TileMap3D)
 	edit_mode = true
-	if editable_object:
-		if selection[0] is GridMap:
-			current_grid_map = selection[0]
-		else:
-			current_grid_map = selection[0].get_child(0)
+	if selection[0] is GridMap:
+		current_grid_map = selection[0]
+	else:
+		current_grid_map = selection[0].get_child(0)
 
 func _enter_tree():
 	EditorInterface.get_selection().selection_changed.connect(_selection_changed)
